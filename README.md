@@ -17,7 +17,7 @@ Korisnički interfejs je jednostavan i dizajniran prema Material 3 smjernicama u
 
 ---
 
-## 📸 Slike ekrana (Screenshots)
+## Slike ekrana (Screenshots)
 
 ### Splash Screen
 ![Splash Screen](dokumentacija/slike/splash.png)
@@ -178,7 +178,7 @@ Ovaj sloj omogućava jednostavno skaliranje aplikacije jer se u budućnosti mož
 
 UI sloj u aplikaciji je modularan i koristi zajedničke komponente koje se ponavljaju kroz različite ekrane. Komponente su smještene u `components` paketu i omogućavaju lakšu organizaciju i ponovno korištenje koda.
 
-##### 📂 BottomBar.kt
+#####  BottomBar.kt
 Prikazuje donji navigacijski meni u aplikaciji.  
 Omogućava brzo prebacivanje između Home ekrana, izgubljenih dokumenata, važećih isprava, statistike i favorita.  
 BottomBar koristi Jetpack Compose `NavigationBar` komponente i automatski prikazuje aktivnu rutu.
@@ -341,13 +341,13 @@ U razvoju aplikacije korišten je skup modernih Android i Jetpack tehnologija ko
 
 ---
 
-## 📦 Korištene Jetpack Compose komponente
+##  Korištene Jetpack Compose komponente
 
 U aplikaciji **OpenDataBiH** korišten je skup modernih Jetpack Compose komponenti koje omogućavaju izgradnju fleksibilnog, responsivnog i deklarativnog korisničkog interfejsa.
 
 ---
 
-### 🔹 LazyColumn
+###  LazyColumn
 `LazyColumn` je Compose komponenta koja omogućava vertikalno skrolanje liste.  
 Koristi se za:
 - Prikaz liste izgubljenih dokumenata.
@@ -360,7 +360,7 @@ Koristi se za:
 
 ---
 
-### 🔹 BoxWithConstraints
+### BoxWithConstraints
 `BoxWithConstraints` omogućava prilagodbu sadržaja u zavisnosti od veličine ekrana.  
 Koristi se na ekranu statistike za:
 - Ograničavanje maksimalne širine grafova na velikim ekranima.
@@ -372,7 +372,7 @@ Koristi se na ekranu statistike za:
 
 ---
 
-### 🔹 AnimatedVisibility
+###  AnimatedVisibility
 `AnimatedVisibility` omogućava animirano prikazivanje ili sakrivanje sadržaja.  
 Koristi se za:
 - Animaciju pojavljivanja grafova na ekranu statistike nakon kratkog kašnjenja.
