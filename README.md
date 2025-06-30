@@ -48,7 +48,7 @@ Dodatno, korisnik bira kriterij filtriranja putem radio dugmadi. Nakon potvrde, 
 ### Izgubljeni dokumenti
 ![Izgubljeni dokumenti](dokumentacija/slike/lost.png)
 
-**Opis:** Prikaz liste izgubljenih dokumenata s mogućnošću filtriranja i sortiranja po kantonu i entitetu.
+**Opis:** Prikaz liste izgubljenih dokumenata s mogućnošću sortiranja.
 
 ---
 
