@@ -1,6 +1,6 @@
 #  OpenDataBiH - Dokumentacija
 
-## 📌 Opis rada aplikacije
+##  Opis rada aplikacije
 OpenDataBiH je Android mobilna aplikacija koja omogućava pregled i pretragu javnih podataka sa Portala otvorenih podataka Bosne i Hercegovine.  
 Aplikacija koristi Web API za dohvat podataka i omogućava korisnicima:
 - Pregled izgubljenih putnih dokumenata
@@ -174,28 +174,28 @@ Ovaj sloj omogućava jednostavno skaliranje aplikacije jer se u budućnosti mož
 - Sadrži ekrane za prikaz, filtriranje, pregled detalja i statistiku.
 
 ---
-#### 🔹 UI komponente
+## UI komponente
 
 UI sloj u aplikaciji je modularan i koristi zajedničke komponente koje se ponavljaju kroz različite ekrane. Komponente su smještene u `components` paketu i omogućavaju lakšu organizaciju i ponovno korištenje koda.
 
-#####  BottomBar.kt
+###  BottomBar.kt
 Prikazuje donji navigacijski meni u aplikaciji.  
 Omogućava brzo prebacivanje između Home ekrana, izgubljenih dokumenata, važećih isprava, statistike i favorita.  
 BottomBar koristi Jetpack Compose `NavigationBar` komponente i automatski prikazuje aktivnu rutu.
 
-#####  TopBar.kt
+### TopBar.kt
 Prikazuje vrh ekrana sa nazivom trenutnog prikaza.  
 Uključuje dugme za povratak kada je to potrebno.  
 TopBar se automatski prilagođava trenutnoj ruti u aplikaciji.
 
-#####  LostDocumentsFloatingModal.kt
+###  LostDocumentsFloatingModal.kt
 Modal komponenta za filtriranje izgubljenih dokumenata.  
 Omogućava korisniku odabir entiteta, kantona i kriterija filtriranja.  
 Prikazuje se kao dijalog iznad glavnog sadržaja i koristi Jetpack Compose `AlertDialog` i `RadioButton` elemente.
 
-#####  ValidDocumentsFloatingModal.kt
+###  ValidDocumentsFloatingModal.kt
 Modal komponenta za sortiranje važećih putnih isprava.  
-Omogućava korisniku odabir kriterija sortiranja (muški, ženski, ukupno).  
+Omogućava korisniku odabir entiteta, kantona i kriterija filtriranja.  
 Prikazuje se iznad sadržaja i omogućava brzo filtriranje bez napuštanja ekrana.
 
 ---
@@ -347,7 +347,7 @@ U aplikaciji **OpenDataBiH** korišten je skup modernih Jetpack Compose komponen
 
 ---
 
-###  LazyColumn
+### LazyColumn
 `LazyColumn` je Compose komponenta koja omogućava vertikalno skrolanje liste.  
 Koristi se za:
 - Prikaz liste izgubljenih dokumenata.
@@ -365,6 +365,9 @@ Koristi se za:
 Koristi se na ekranu statistike za:
 - Ograničavanje maksimalne širine grafova na velikim ekranima.
 - Fleksibilno pozicioniranje sadržaja unutar Box-a.
+---
+  ![Veci ekrani](dokumentacija/slike/stat4.png)
+
 
 **Prednosti:**
 - Prilagodljiv dizajn za različite uređaje.
@@ -372,7 +375,7 @@ Koristi se na ekranu statistike za:
 
 ---
 
-###  AnimatedVisibility
+### AnimatedVisibility
 `AnimatedVisibility` omogućava animirano prikazivanje ili sakrivanje sadržaja.  
 Koristi se za:
 - Animaciju pojavljivanja grafova na ekranu statistike nakon kratkog kašnjenja.
@@ -432,3 +435,18 @@ U aplikaciji se koristi za:
 - Legenda i vrijednosti se prikazuju sa podešenim veličinama i bojama.
 
 ---
+
+## Korištenje SwipeRefresh komponente (Pull-to-refresh)
+
+Aplikacija koristi `SwipeRefresh` komponentu iz Accompanist biblioteke za ručno osvježavanje podataka povlačenjem liste prema dolje.
+
+### Primjer koda:
+```kotlin
+val isRefreshing by viewModel.isRefreshing.collectAsState()
+
+SwipeRefresh(
+    state = rememberSwipeRefreshState(isRefreshing),
+    onRefresh = { viewModel.fetchDocuments() }
+) {
+    // Ovdje se prikazuje LazyColumn sa podacima
+}
