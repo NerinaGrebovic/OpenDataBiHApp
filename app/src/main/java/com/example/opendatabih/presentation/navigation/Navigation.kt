@@ -2,6 +2,7 @@ package com.example.opendatabih.presentation.navigation
 
 import LostDocumentDetailScreen
 import StatisticsScreen
+import android.annotation.SuppressLint
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
@@ -10,6 +11,7 @@ import androidx.navigation.navArgument
 import com.example.opendatabih.presentation.components.TopBar
 import com.example.opendatabih.presentation.screen.*
 import androidx.compose.material3.Scaffold
+import androidx.compose.runtime.remember
 import com.example.opendatabih.presentation.di.provideFavoriteViewModel
 import com.example.opendatabih.presentation.di.provideLostDocumentsViewModel
 import com.example.opendatabih.presentation.di.provideValidTravelDocumentsViewModel
@@ -33,6 +35,7 @@ object NavRoutes {
     fun validTravelDetailRoute(institution: String) = "valid_travel_detail/$institution"
 }
 
+@SuppressLint("UnrememberedGetBackStackEntry")
 @Composable
 fun AppNavGraph(navController: NavHostController, padding: androidx.compose.foundation.layout.PaddingValues) {
 
@@ -57,7 +60,8 @@ fun AppNavGraph(navController: NavHostController, padding: androidx.compose.foun
         }
 
         composable(NavRoutes.LOST_DOCUMENTS) { backStackEntry ->
-            val lostDocumentsViewModel = provideLostDocumentsViewModel(backStackEntry)
+            val parentEntry = remember { navController.getBackStackEntry(NavRoutes.HOME) }
+            val lostDocumentsViewModel = provideLostDocumentsViewModel(parentEntry)
 
             Scaffold(
                 topBar = {
@@ -73,7 +77,8 @@ fun AppNavGraph(navController: NavHostController, padding: androidx.compose.foun
         }
 
         composable(NavRoutes.VALID_TRAVEL) { backStackEntry ->
-            val validTravelDocumentsViewModel = provideValidTravelDocumentsViewModel(backStackEntry)
+            val parentEntry = remember { navController.getBackStackEntry(NavRoutes.HOME) }
+            val validTravelDocumentsViewModel = provideValidTravelDocumentsViewModel(parentEntry)
 
             Scaffold(
                 topBar = {
@@ -92,8 +97,10 @@ fun AppNavGraph(navController: NavHostController, padding: androidx.compose.foun
             route = NavRoutes.LOST_DOCUMENT_DETAIL,
             arguments = listOf(navArgument("institution") { type = androidx.navigation.NavType.StringType })
         ) { backStackEntry ->
+            val parentEntry = remember { navController.getBackStackEntry(NavRoutes.HOME) }
+            val lostDocumentsViewModel = provideLostDocumentsViewModel(parentEntry)
+
             val institution = backStackEntry.arguments?.getString("institution") ?: ""
-            val lostDocumentsViewModel = provideLostDocumentsViewModel(backStackEntry)
 
             Scaffold(
                 topBar = {
@@ -113,8 +120,10 @@ fun AppNavGraph(navController: NavHostController, padding: androidx.compose.foun
             route = NavRoutes.VALID_TRAVEL_DETAIL,
             arguments = listOf(navArgument("institution") { type = androidx.navigation.NavType.StringType })
         ) { backStackEntry ->
+            val parentEntry = remember { navController.getBackStackEntry(NavRoutes.HOME) }
+            val validTravelDocumentsViewModel = provideValidTravelDocumentsViewModel(parentEntry)
+
             val institution = backStackEntry.arguments?.getString("institution") ?: ""
-            val validTravelDocumentsViewModel = provideValidTravelDocumentsViewModel(backStackEntry)
 
             Scaffold(
                 topBar = {
@@ -150,8 +159,9 @@ fun AppNavGraph(navController: NavHostController, padding: androidx.compose.foun
         }
 
         composable(NavRoutes.STATISTICS) { backStackEntry ->
-            val lostDocumentsViewModel = provideLostDocumentsViewModel(backStackEntry)
-            val validTravelDocumentsViewModel = provideValidTravelDocumentsViewModel(backStackEntry)
+            val parentEntry = remember { navController.getBackStackEntry(NavRoutes.HOME) }
+            val lostDocumentsViewModel = provideLostDocumentsViewModel(parentEntry)
+            val validTravelDocumentsViewModel = provideValidTravelDocumentsViewModel(parentEntry)
 
             Scaffold(
                 topBar = {
