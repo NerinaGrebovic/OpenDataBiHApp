@@ -1,6 +1,6 @@
 #  OpenDataBiH - Dokumentacija
 
-## 📌 Opis rada aplikacije
+##  Opis rada aplikacije
 OpenDataBiH je Android mobilna aplikacija koja omogućava pregled i pretragu javnih podataka sa Portala otvorenih podataka Bosne i Hercegovine.  
 Aplikacija koristi Web API za dohvat podataka i omogućava korisnicima:
 - Pregled izgubljenih putnih dokumenata
