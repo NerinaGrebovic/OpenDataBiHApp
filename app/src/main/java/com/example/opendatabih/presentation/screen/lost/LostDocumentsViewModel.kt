@@ -68,18 +68,22 @@ class LostDocumentsViewModel(
 
     fun updateSortOption(option: String) {
         savedStateHandle["sortOption"] = option
+        applyAllFilters()
     }
 
     fun updateSelectedViewType(viewType: String) {
         savedStateHandle["selectedViewType"] = viewType
+        applyAllFilters()
     }
 
     fun updateSelectedCanton(canton: String) {
         savedStateHandle["selectedCanton"] = canton
+        applyAllFilters()
     }
 
     fun updateSelectedEntity(entity: String) {
         savedStateHandle["selectedEntity"] = entity
+        applyAllFilters()
     }
 
     fun updateSearchQuery(query: String) {

@@ -129,9 +129,9 @@ fun HomeScreen(
                     lostViewModel.updateSelectedViewType(selectedViewType)
                     lostViewModel.updateSelectedCanton(selectedCanton)
                     lostViewModel.updateSelectedEntity(selectedEntity)
-                    lostViewModel.applyAllFilters()
                     showLostModal = false
                     navController.navigate(NavRoutes.LOST_DOCUMENTS)
+
                 },
                 onDismiss = { showLostModal = false }
             )
