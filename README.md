@@ -17,7 +17,7 @@ Korisnički interfejs je jednostavan i dizajniran prema Material 3 smjernicama u
 
 ---
 
-## Slike ekrana (Screenshots)
+## Slike ekrana
 
 ### Splash Screen
 ![Splash Screen](dokumentacija/slike/splash.png)
